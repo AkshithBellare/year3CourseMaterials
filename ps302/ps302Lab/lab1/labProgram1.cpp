@@ -37,7 +37,7 @@ int main()
     outputFile.open("output.txt", ios::app);
     outputFile << "\nradius is " << radius;
     for(int i=0; i<=radint; i++) {
-        for(int j=0; j<= pow((pow(radint,2)-pow(i,2)), 0.5); j++ ) {
+        for(int j=0; j*j<= radint*radint - i*i; j++ ) {
             outputFile << '(' << i << ',' << j << ')' << " ";
             cout << '(' << i << ',' << j << ')' << " ";
             numOfSamplePoints += 1;
