@@ -25,6 +25,7 @@ int main()
         exit(0);
     }
     else {
+        radius.erase(0, radius.find_first_not_of('0'));
         if(radius.length() > 3) {
             cout << "Radius has to be a 3 digit positive integer";
             exit(0);
@@ -36,8 +37,8 @@ int main()
     ofstream outputFile;
     outputFile.open("output.txt", ios::app);
     outputFile << "\nradius is " << radius;
-    for(int i=0; i<=radint; i++) {
-        for(int j=0; j<=i && j*j<= radint*radint - i*i; j++ ) {
+    for(int i=1; i<=radint; i++) {
+        for(int j=1; j<=i && j*j<= radint*radint - i*i; j++ ) {
             outputFile << '(' << i << ',' << j << ')' << " ";
             cout << '(' << i << ',' << j << ')' << " ";
             if(i!=j) {
