@@ -37,8 +37,8 @@ int main()
     ofstream outputFile;
     outputFile.open("output.txt", ios::app);
     outputFile << "\nradius is " << radius;
-    for(int i=1; i<=radint; i++) {
-        for(int j=1; j<=i && j*j<= radint*radint - i*i; j++ ) {
+    for(int i=0; i<=radint; i++) {
+        for(int j=0; j<=i && j*j<= radint*radint - i*i; j++ ) {
             outputFile << '(' << i << ',' << j << ')' << " ";
             cout << '(' << i << ',' << j << ')' << " ";
             if(i!=j) {
