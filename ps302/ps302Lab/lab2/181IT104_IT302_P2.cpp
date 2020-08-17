@@ -1,6 +1,7 @@
 #include<iostream>
 #include <vector>
 #include <unordered_map>
+#include <fstream>
 
 class Inspector {
    private: 
@@ -43,13 +44,21 @@ class Inspector {
             std::cout << "Percentage of products stamped: " << m_per_of_stamping << std::endl;
             std::cout << std::endl;
         }
+
+        std::string get_string() {
+            return m_name + "\t\t\t" + std::to_string(m_per_of_stamping) + "\t\t\t"+ std::to_string(m_pro_of_failing_to_stamp) + "\n\n";
+        }
 };
 
 int main() {
+    std::ofstream myFile;
+    myFile.open("output.txt");
+    myFile << "NAME\t\t\tPERCENT STAMPED\t\t\tPERCENT FAILED STAMPING\n\n";
     double total_failed_inspections{0};
     int number_of_inspectors{0};
     std::cout << "Enter the number of inspectors: " ;
     std::cin >> number_of_inspectors;
+    int sum_percent{0};
     std::unordered_map<std::string, Inspector> inspectorMap;
     for(int i=0; i<number_of_inspectors; ++i) {
         std::string name;
@@ -66,15 +75,22 @@ int main() {
         std::cout << "Enter the percentage of products stamped: ";
         double per{0};
         std::cin >> per;
+        sum_percent += per;
         inspectorMap[name].set_per_of_stamping(per);
         total_failed_inspections += inspectorMap[name].get_per_of_stamping() * inspectorMap[name].get_pro_of_failing_to_stamp();
-    }
+        std::cout << std::endl;
 
+        myFile << inspectorMap[name].get_string();
+    }
     std::cout << std::endl <<  "Enter the name of the instructor: ";
     std::string name;
     std::cin >> name;
-    std::cout << "P( a package being checked by " << name << " ) = " << inspectorMap[name].get_per_of_stamping() << std::endl;
-    std::cout << "P( " << name << " failing to check a package ) = " << inspectorMap[name].get_pro_of_failing_to_stamp() << std::endl;
-    std::cout << "P( a package not stamped and checked by " << name << " ) = " <<  (inspectorMap[name].get_per_of_stamping() * inspectorMap[name].get_pro_of_failing_to_stamp()) / (total_failed_inspections) << std::endl;
+    std::string output;
+    output = "P( a package being checked by " + name + " ) = " + std::to_string(inspectorMap[name].get_per_of_stamping()) + "\n";
+    output += "P( " + name + " failing to check a package ) = " + std::to_string(inspectorMap[name].get_pro_of_failing_to_stamp()) + "\n";
+    output += "P( a package not being stamped ) = " + std::to_string(total_failed_inspections) + "\n";
+    output += "P( a package not stamped and checked by " + name + " ) = " + std::to_string((inspectorMap[name].get_per_of_stamping() * inspectorMap[name].get_pro_of_failing_to_stamp()) / (total_failed_inspections)) + "\n";
+    std::cout << output;
+    myFile << output;
     return 0;
 }
