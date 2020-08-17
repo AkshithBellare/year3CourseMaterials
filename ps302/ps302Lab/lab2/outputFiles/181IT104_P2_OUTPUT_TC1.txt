@@ -1,0 +1,14 @@
+NAME			PERCENT STAMPED			PERCENT FAILED STAMPING
+
+John			0.100000			0.005000
+
+Tom			0.300000			0.003333
+
+Jeff			0.100000			0.002500
+
+Pat			0.400000			0.002000
+
+P( a package being checked by John ) = 0.100000
+P( John failing to check a package ) = 0.005000
+P( a package not being stamped ) = 0.002550
+P( a package not stamped and checked by John ) = 0.196078

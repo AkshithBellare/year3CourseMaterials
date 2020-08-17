@@ -1,0 +1,12 @@
+NAME			PERCENT STAMPED			PERCENT FAILED STAMPING
+
+Orange			0.100000			0.001429
+
+Apple			0.300000			0.001667
+
+Grape			0.600000			0.002000
+
+P( a package being checked by Orange ) = 0.100000
+P( Orange failing to check a package ) = 0.001429
+P( a package not being stamped ) = 0.001843
+P( a package not stamped and checked by Orange ) = 0.077519
