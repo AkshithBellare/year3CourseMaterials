@@ -1,0 +1,11 @@
+f(x) = c(x^4 + 3)
+x = 0....3
+f(x) = c * 3 for x = 0
+f(x) = c * 4 for x = 1
+f(x) = c * 19 for x = 2
+f(x) = c * 84 for x = 3
+f(x) = c * 259 for x = 4
+Sum of all probabilities for all x values = 1
+369*c = 1
+c = 1/369
+c = 0.002710

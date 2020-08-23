@@ -14,8 +14,11 @@ int main() {
     cout << "Enter n: ";
     cin >> input[2];
 
-    cout << "f(x) = c(x^" << input[0] << " + " << input[1] << ")" << endl;
-    cout << "x = 0...." << input[1] << endl;
+    ofstream outputFile;
+    outputFile.open("output.txt");
+    string result_str = "";
+    result_str +=  "f(x) = c(x^" + to_string(input[0]) + " + " + to_string(input[1]) + ")" + "\n";
+    result_str += "x = 0...." + to_string(input[1]) + "\n";
     double c = 0.0;
 
     vector<int> powers(input[2]+1);
@@ -23,15 +26,17 @@ int main() {
     for(int i=0; i<=input[2]; i++) {
         int xPowM = pow(i, input[0]);
         sum += xPowM + input[1];
-        cout << "f(x) = " << "c * " << xPowM + input[1] << " for x = " << i << endl;
+        result_str += "f(x) = c * " + to_string(xPowM + input[1]) + " for x = " +  to_string(i) + "\n";
     }
-    
-    cout << "Sum of all probabilities for all x values = 1" << endl;
+    result_str += "Sum of all probabilities for all x values = 1\n";
 
-    cout << sum << "*c" << " = 1" << endl;
-    cout << "c = " << "1/" << sum << endl;
+    result_str += to_string(sum) + "*c" + " = 1\n" ;
+    result_str += "c = 1/" + to_string(sum) + "\n";
 
     c = 1.0/static_cast<double> (sum);
 
-    cout << "c = " << c; 
+    result_str += "c = " + to_string(c); 
+
+    outputFile << result_str;
+    cout << result_str;
 }
