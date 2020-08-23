@@ -7,15 +7,25 @@ int main() {
     int len = sizeof(arr)/sizeof(arr[0]);
     int carr[len];
     int i;
-    #pragma omp parallel
+    //using the for clause. with schedule decided by the compiler
+    #pragma omp parallel 
     {
         #pragma omp for
             for(i=0; i<len; ++i) {
                 carr[i] = arr[i] + barr[i];
             }
     }
-
+    printf("a[] : ");
+    for(int i=0; i<len; ++i) {
+        printf("%d ",arr[i]);
+    }
+    printf("\n");
+    printf("b[] : ");
+    for(int i=0; i<len; ++i) {
+        printf("%d ",barr[i]);
+    }
+    printf("\n");
     for(i=0; i<len; ++i) {
-        printf("%d ",carr[i]);
+        printf("a[%d] (%d) + b[%d] (%d)= c[%d] (%d)\n",i, arr[i], i, barr[i],i , carr[i]);
     }
 }
