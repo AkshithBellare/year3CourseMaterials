@@ -3,3 +3,5 @@
 !*/
 *.zip
 *.mp4
+*.vscode/
+*a.out
