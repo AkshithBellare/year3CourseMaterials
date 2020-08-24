@@ -1,0 +1,12 @@
+f(x) = c(x^3 + 40)
+x = 0....40
+f(0) = c * 40
+f(1) = c * 41
+f(2) = c * 48
+f(3) = c * 67
+f(4) = c * 104
+f(5) = c * 165
+Sum of all probabilities for all x values = 1
+465*c = 1
+c = 1/465
+c = 0.002151

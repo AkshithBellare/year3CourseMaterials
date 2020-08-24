@@ -1,0 +1,10 @@
+f(x) = c(x^1 + 20)
+x = 0....20
+f(0) = c * 20
+f(1) = c * 21
+f(2) = c * 22
+f(3) = c * 23
+Sum of all probabilities for all x values = 1
+86*c = 1
+c = 1/86
+c = 0.011628

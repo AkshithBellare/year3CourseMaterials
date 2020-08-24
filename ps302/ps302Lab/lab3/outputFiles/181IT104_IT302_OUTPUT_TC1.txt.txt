@@ -1,0 +1,9 @@
+f(x) = c(x^0 + 10)
+x = 0....10
+0^0 is undefined. ignoring f(x) when m==0 and x==0
+f(1) = c * 11
+f(2) = c * 11
+Sum of all probabilities for all x values = 1
+22*c = 1
+c = 1/22
+c = 0.045455

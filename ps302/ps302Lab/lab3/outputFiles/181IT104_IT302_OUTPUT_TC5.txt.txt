@@ -1,0 +1,13 @@
+f(x) = c(x^4 + 50)
+x = 0....50
+f(0) = c * 50
+f(1) = c * 51
+f(2) = c * 66
+f(3) = c * 131
+f(4) = c * 306
+f(5) = c * 675
+f(6) = c * 1346
+Sum of all probabilities for all x values = 1
+2625*c = 1
+c = 1/2625
+c = 0.000381

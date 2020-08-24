@@ -1,0 +1,11 @@
+f(x) = c(x^2 + 30)
+x = 0....30
+f(0) = c * 30
+f(1) = c * 31
+f(2) = c * 34
+f(3) = c * 39
+f(4) = c * 46
+Sum of all probabilities for all x values = 1
+180*c = 1
+c = 1/180
+c = 0.005556

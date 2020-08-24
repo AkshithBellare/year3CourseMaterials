@@ -25,8 +25,12 @@ int main() {
     int sum = 0;
     for(int i=0; i<=input[2]; i++) {
         int xPowM = pow(i, input[0]);
-        sum += xPowM + input[1];
-        result_str += "f(" + to_string(i) + ") = c * " + to_string(xPowM + input[1]) + "\n";
+        if(i == 0 && input[0] == 0) {
+            result_str += "0^0 is undefined. ignoring f(x) when m==0 and x==0\n";
+        } else {
+            sum += xPowM + input[1];
+            result_str += "f(" + to_string(i) + ") = c * " + to_string(xPowM + input[1]) + "\n";
+        }
     }
     result_str += "Sum of all probabilities for all x values = 1\n";
 
