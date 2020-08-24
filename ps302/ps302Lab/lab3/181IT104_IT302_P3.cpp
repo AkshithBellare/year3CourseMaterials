@@ -26,7 +26,7 @@ int main() {
     for(int i=0; i<=input[2]; i++) {
         int xPowM = pow(i, input[0]);
         sum += xPowM + input[1];
-        result_str += "f(x) = c * " + to_string(xPowM + input[1]) + " for x = " +  to_string(i) + "\n";
+        result_str += "f(" + to_string(i) + ") = c * " + to_string(xPowM + input[1]) + "\n";
     }
     result_str += "Sum of all probabilities for all x values = 1\n";
 
@@ -35,7 +35,7 @@ int main() {
 
     c = 1.0/static_cast<double> (sum);
 
-    result_str += "c = " + to_string(c); 
+    result_str += "c = " + to_string(c) + "\n"; 
 
     outputFile << result_str;
     cout << result_str;
