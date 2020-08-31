@@ -1,0 +1,9 @@
+number of pens to be selected: N = 2
+number of Blue pens : X = 3
+number of Red pens : Y = 4
+number of Green pens: Z = 2
+X/Y		0		1		2		h(y)
+0		1/36		8/36		6/36		15/36
+1		6/36		12/36		0/36		18/36
+2		3/36		0/36		0/36		3/36
+g(x)		10/36		20/36		6/36		
