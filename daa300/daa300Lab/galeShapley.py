@@ -17,7 +17,7 @@ class Woman:
 def galeShapley(Men, Women):
     freeMen = Men 
     while(freeMen):
-        man = next(iter(freeMen.values()))
+        man = next(iter(Men.values()))
         print(man.name)
         woman = Women[man.prefList[0]];
         man.prefList.remove(woman.name);
@@ -39,16 +39,19 @@ def galeShapley(Men, Women):
 
 
 def main():
-    Raj = Man("Raj", ["Aparna", "Bhavna", "Chithra"])
-    Suraj = Man("Suraj", ["Aparna", "Chithra", "Bhavna"])
-    Tejas = Man("Tejas", ["Bhavna", "Chithra", "Aparna"])
-    Men = {"Raj":Raj, "Suraj":Suraj, "Tejas":Tejas}
+    R = Man("R", ["B", "A", "D", "E", "C"])
+    S = Man("S", ["D", "B", "A", "C", "E"])
+    T = Man("T", ["B", "E", "C", "D", "A"])
+    U = Man("U", ["A", "D", "C", "B", "E"])
+    V = Man("V", ["B", "D", "A", "E", "C"])
+    Men = {"R":R, "S":S, "T":T, "U":U, "V":V}
     
-    Aparna = Woman("Aparna", ["Raj", "Suraj", "Tejas"])
-    Bhavna = Woman("Bhavna", ["Suraj", "Raj", "Tejas"])
-    Chithra = Woman("Chithra", ["Tejas", "Raj", "Suraj"])
-    Women = {"Aparna": Aparna, "Bhavna": Bhavna, "Chithra": Chithra}
-
+    A = Man("A", ["V", "R", "S", "U", "T"])
+    B = Man("B", ["T", "S", "U", "R", "V"])
+    C = Man("C", ["S", "T", "U", "V", "R"])
+    D = Man("D", ["R", "V", "U", "T", "S"])
+    E = Man("E", ["U", "S", "V", "T", "R"])
+    Women = {"A":A, "B":B, "C":C, "D":D, "E":E}
     galeShapley(Men, Women)
 
 if __name__ == "__main__":
