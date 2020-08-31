@@ -1,4 +1,6 @@
 n = 5
+men = {"0": "Raj", "1":"Suraj", "2": "Tejas", "3": "Urman", "4": "Vinay"}
+women = {"0": "Aparna", "1": "Bhavna", "2": "Chithra", "3": "Divya", "4": "Eliana"}
 wpref = [[4,0,1,3,2],[2,1,3,0,4],[1,2,3,4,0],[0,4,3,2,1],[3,1,4,2,0]]
 mpref = [[1,0,3,4,2],[3,1,0,2,4],[1,4,2,3,0],[0,3,2,1,4],[1,3,0,4,2]]
 wife = [-1]*n
@@ -16,16 +18,21 @@ freemen = {0,1,2,3,4}
 
 while(freemen):
     man = next(iter(freemen))
-    print(man)
+    print("freemen list {}".format(freemen))
     woman = mpref[man][count[man]]
-    if(count[man]!=n):  
+    if(count[man] == n):
+        freemen.remove(man)
+        continue
+    if(count[man] != n):  
         if(husb[woman] == -1):
             husb[woman] = man
             wife[man] = woman
             count[man] += 1
             freemen.remove(man)
-        elif inv_pref_list[woman][man] > inv_pref_list[woman][husb[woman]]:
-            wife[husb[woman]] = -2
+            print("paired {} and {}".format(men[str(man)], women[str(woman)]))
+        elif inv_pref_list[woman][man] < inv_pref_list[woman][husb[woman]]:
+            print("{} chooses {} over {}".format(women[str(woman)], men[str(man)], men[str(husb[woman])]))
+            wife[husb[woman]] = -1
             freemen.add(husb[woman])
             husb[woman] = man
             wife[man] = woman
@@ -35,13 +42,5 @@ while(freemen):
             freemen.add(man)
             count[man] += 1
 
-
-
-print(wife)
-print(husb)
-
-
-        
-
-
-
+for i in range(n):
+    print("{} marries {}".format(men[str(i)], women[str(wife[i])]))
