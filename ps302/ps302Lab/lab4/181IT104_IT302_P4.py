@@ -40,13 +40,15 @@ if(N > (X + Y + Z )):
     print(res_str)
     exit()
 
+
+
 den = nCr(X+Y+Z, N)
 col_sum = [int('0')]*(N+1)
 row_sum = [int('0')]*(N+1)
 res_str += "X/Y\t\t" 
 for i in range(N+1):
     res_str += str(i) + "\t\t"
-res_str += "h(y)\n"
+res_str += "g(x)\n"
 for i in range(N+1):
     res_str += str(i) + "\t\t"
     for j in range(N+1):
@@ -55,10 +57,23 @@ for i in range(N+1):
         row_sum[i] += num
         res_str+= str(num) + "/" + str(den) + "\t\t"
     res_str += str(row_sum[i]) + "/" + str(den) + "\n"
-res_str += "g(x)\t\t"
+res_str += "h(y)\t\t"
 for i in range(N+1):
     res_str+=str(col_sum[i]) + "/" + str(den) + "\t\t"
 res_str += "\n"
+
+x_str="sigma(g(x)) = "
+y_str="sigma(h(y)) = "
+for i in range(N+1):
+    if i == N:
+        x_str += str(row_sum[i]) + "/" + str(den)
+        y_str += str(col_sum[i]) + "/" + str(den)
+    else: 
+        x_str += str(row_sum[i]) + "/" + str(den) + " + "
+        y_str += str(col_sum[i]) + "/" + str(den) + " + "
+y_str += " = {}/{} = 1\n".format(den,den)
+x_str += " = {}/{} = 1\n".format(den,den)
+res_str += x_str + y_str
 print(res_str)
 outFile.write(res_str)
 
