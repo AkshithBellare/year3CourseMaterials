@@ -1,14 +1,13 @@
 outFile = open("output.txt", "w")
 res_str = ""
 
-def fact(n):
+def nCr(n,r):
+    r = min(n, n-r)
     res = 1
-    for i in range(2, n+1):
-        res = res * i
+    for i in range(r):
+        res *= n - i
+        res/=(i+1)
     return int(res)
-
-def nCr(n, r):
-    return int(fact(n)/(fact(r)*fact(n-r)))
 
 def getInput(message, var, res_str):
     try:
@@ -45,6 +44,7 @@ if(N > (X + Y + Z )):
 den = nCr(X+Y+Z, N)
 col_sum = [int('0')]*(N+1)
 row_sum = [int('0')]*(N+1)
+res_str += "f(x,y) = " + "(XCx * YCy * ZC(N - x - y)) / ((X + Y + Z)CN)\n"
 res_str += "X/Y\t\t" 
 for i in range(N+1):
     res_str += str(i) + "\t\t"

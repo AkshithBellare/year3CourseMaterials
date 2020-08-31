@@ -1,0 +1,11 @@
+number of pens to be selected: N = 2
+number of Blue pens : X = 3
+number of Red pens : Y = 3
+number of Green pens: Z = 5
+X/Y		0		1		2		g(x)
+0		10/55		15/55		3/55		28/55
+1		15/55		9/55		0/55		24/55
+2		3/55		0/55		0/55		3/55
+h(y)		28/55		24/55		3/55		
+sigma(g(x)) = 28/55 + 24/55 + 3/55 = 55/55 = 1
+sigma(h(y)) = 28/55 + 24/55 + 3/55 = 55/55 = 1

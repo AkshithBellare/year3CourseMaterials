@@ -1,0 +1,3 @@
+number of pens to be selected: N = 4
+Invalid input: input for N was not a non-integer
+Please enter positive integer

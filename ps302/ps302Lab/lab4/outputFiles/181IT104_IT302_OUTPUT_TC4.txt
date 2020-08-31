@@ -1,0 +1,2 @@
+Invalid input: input for N was not a non-integer
+Please enter positive integer

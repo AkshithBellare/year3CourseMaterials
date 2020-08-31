@@ -1,9 +1,12 @@
 number of pens to be selected: N = 2
 number of Blue pens : X = 3
 number of Red pens : Y = 4
-number of Green pens: Z = 2
-X/Y		0		1		2		h(y)
-0		1/36		8/36		6/36		15/36
-1		6/36		12/36		0/36		18/36
-2		3/36		0/36		0/36		3/36
-g(x)		10/36		20/36		6/36		
+number of Green pens: Z = 5
+f(x,y) = (XCx * YCy * ZC(N - x - y)) / ((X + Y + Z)CN)
+X/Y		0		1		2		g(x)
+0		10/66		20/66		6/66		36/66
+1		15/66		12/66		18/66		45/66
+2		3/66		12/66		18/66		33/66
+h(y)		28/66		44/66		42/66		
+sigma(g(x)) = 36/66 + 45/66 + 33/66 = 66/66 = 1
+sigma(h(y)) = 28/66 + 44/66 + 42/66 = 66/66 = 1
