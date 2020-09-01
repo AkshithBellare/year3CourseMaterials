@@ -4,11 +4,6 @@
 #include<limits.h>
 #include<omp.h>
 #include<string.h>
-#define SIZE1 5000
-#define SIZE2 10000
-#define SIZE3 50000
-#define SIZE4 100000
-#define SIZE5 1000000
 omp_sched_t kind;
 int chunk_size;
 
@@ -41,19 +36,17 @@ double timeoverheadCalc() {
     return time_overhead;
 }
 
-void sequentialMin(int *arr, int size) {
-    printf("Sequential execution with size = %d\n", size);
-    int min = INT_MAX;
+int sequentialMin(int *arr, int size) {
+    int min_value = INT_MAX;
     gettimeofday(&TimeValue_Start, &TimeZone_Start);
     for(int i=0; i<size; ++i)  {
-        if(*arr < min) {
-            min = *arr;
+        if(*arr < min_value) {
+            min_value = *arr;
         }
         arr++;
     }
     gettimeofday(&TimeValue_Final, &TimeZone_Final);
-    printf("min is %d\n", min);
-    printf("Time taken = %f\n", timeoverheadCalc());
+    return min_value;
 }
 
 const char* getSchedule(omp_sched_t kind) {
@@ -81,39 +74,27 @@ int parallelMin(int *arr, int size) {
    int min_value = *arr; 
    int i;
    gettimeofday(&TimeValue_Start, &TimeZone_Start);
-   #pragma omp parallel for schedule(static, 10) reduction(min: min_value)
+    #pragma omp parallel for schedule(runtime) reduction(min: min_value)
     for(i=0; i<size; ++i)   {
         if(arr[i] <= min_value ) {
             min_value = arr[i];
         }
     }
     gettimeofday(&TimeValue_Final, &TimeZone_Final);
-    printf("min is %d\n", min_value);
-    printf("Time taken = %f\n", timeoverheadCalc());
+    return min_value;
 }
 
 
 int main() {
-    int arr1[SIZE1];
-    initArray(arr1, SIZE1);
-    int arr2[SIZE2];
-    initArray(arr2, SIZE2);
-    int arr3[SIZE3];
-    initArray(arr3, SIZE3);
-    int arr4[SIZE4];
-    initArray(arr4, SIZE4);
-    int arr5[SIZE5];
-    initArray(arr5, SIZE5);
-    //SET SCHEDULE IN THE PARALLEL MIN FUNCTION 
-    //sequentialMin(arr1, SIZE1);
-    //sequentialMin(arr2, SIZE2);
-    //sequentialMin(arr3, SIZE3);
-    //sequentialMin(arr4, SIZE4);
-    //sequentialMin(arr5, SIZE5);
-
-    parallelMin(arr1, SIZE1);
-    parallelMin(arr2, SIZE2);
-    parallelMin(arr3, SIZE3);
-    parallelMin(arr4, SIZE4);
-    parallelMin(arr5, SIZE5);
+    int SIZE[] = {5000, 10000, 50000, 100000, 1000000};
+    int arr[SIZE[4]];
+    int min;
+    for(int i=0; i<5; ++i) {
+        initArray(arr,SIZE[i]);
+        min = sequentialMin(arr, SIZE[i]);
+        printf("size = %-10d sequential min = %-10d time taken = %-10f ", SIZE[i], min, timeoverheadCalc());
+        min = parallelMin(arr, SIZE[i]);
+        printf("size = %-10d parallel   min = %-10d time taken = %-10f ", SIZE[i], min, timeoverheadCalc());
+        printf("\n");
+    }
 }

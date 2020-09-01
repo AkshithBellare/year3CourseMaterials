@@ -6,7 +6,7 @@ int tid, x;
 
 void main() {
     x = 10;
-    #pragma omp parallel num_threads(4) copyin(x)
+    #pragma omp parallel num_threads(4) 
     {
     tid = omp_get_thread_num();
     #pragma omp master
