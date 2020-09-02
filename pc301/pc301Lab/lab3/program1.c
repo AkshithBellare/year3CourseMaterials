@@ -1,11 +1,10 @@
 #include<stdio.h>
 #include<omp.h>
-int tid, x;
+int tid, x = 10;
 
 #pragma omp threadprivate(x, tid)
 
 void main() {
-    x = 10;
     #pragma omp parallel num_threads(4) 
     {
     tid = omp_get_thread_num();
