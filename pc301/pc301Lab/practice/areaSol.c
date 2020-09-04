@@ -15,7 +15,7 @@ int main() {
         double x;
         id = omp_get_thread_num();
         nthrds = omp_get_num_threads();
-        if(id==0) nthreads = nthrds;
+        if(id==1) nthreads = nthrds;
         for(i=id, sum[id]=0.0; i<num_steps; i+=nthrds ) {
             x = (i + 0.5)*step;
             sum[id] += 4.0/(1.0 + x*x);
