@@ -1,9 +1,10 @@
 #include<stdlib.h>
 #include<omp.h>
 #include<stdio.h>
-#define SIZE 100
+#define SIZE 1000
 
 int main() {
+    printf("PARALLEL MATRIX MULTIPLICATION: matrices of size=%d\n", SIZE);
     int** mat1 = (int **) malloc (SIZE * sizeof(int*));
     int** mat2 = (int **) malloc (SIZE * sizeof(int*));
     int** res  = (int **) malloc (SIZE * sizeof(int*));

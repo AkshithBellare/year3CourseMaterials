@@ -5,6 +5,7 @@
 
 #define SIZE 1000
 int main() {
+   printf("SEQUENTIAL MATRIX MUlTIPLICATION: matrices of size: %d\n", SIZE);
    int **mat1 = (int **) malloc (SIZE * sizeof(int*));
    int **mat2 = (int **) malloc (SIZE * sizeof(int*));
    int **res  = (int **) malloc (SIZE * sizeof(int*));
