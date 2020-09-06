@@ -1,7 +1,7 @@
 #include<stdlib.h>
 #include<omp.h>
 #include<stdio.h>
-#define SIZE 1000
+#define SIZE 3000
 
 int main() {
     printf("PARALLEL MATRIX MULTIPLICATION: matrices of size=%d\n", SIZE);

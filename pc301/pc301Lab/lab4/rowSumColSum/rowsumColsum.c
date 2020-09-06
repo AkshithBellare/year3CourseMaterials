@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<omp.h>
-#define SIZE 10000
+#define SIZE 10
 
 int main() {
     int* rowsum = (int*) malloc (SIZE * sizeof(int));
@@ -12,12 +12,16 @@ int main() {
     for(int i=0; i<SIZE; ++i) {
         matrix[i] = (int*) malloc (SIZE * sizeof(int));
     }
-
+    
+    printf("begin initializing matrix\n");
     for(int i=0; i<SIZE; ++i) {
         for(int j=0; j<SIZE; ++j) {
             matrix[i][j] = rand() % 100;
         }
     }
+    printf("Finished initializing the matrix\n");
+
+    
 
     printf("SEQUENTIAL CALCUALTION\n");
     double st = omp_get_wtime();
@@ -51,7 +55,4 @@ int main() {
         }
     et = omp_get_wtime();
     printf("total time=%f\n", et - st);
-
-
-
 } 

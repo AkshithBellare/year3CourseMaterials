@@ -29,14 +29,14 @@ int fibo(int n) {
         return n;
     }
     else {
-        #pragma omp task shared(a) if(n > 5)
+        #pragma omp task shared(a)
         {
             printf("Task created by thread %d\n n is %d\n", omp_get_thread_num(), n);
             a = fibo(n-1);
             printf("Thread executed by thread %d\ta=%d\n", omp_get_thread_num(), a);
         }
 
-        #pragma omp task shared(b) if(n>5)
+        #pragma omp task shared(b) 
         {
             printf("Task created by thread %d\n", omp_get_thread_num());
             b = fibo(n-2);

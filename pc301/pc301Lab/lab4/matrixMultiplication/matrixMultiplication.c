@@ -3,7 +3,7 @@
 #include<omp.h>
 #include<stdlib.h>
 
-#define SIZE 1000
+#define SIZE 2000
 int main() {
    printf("SEQUENTIAL MATRIX MUlTIPLICATION: matrices of size: %d\n", SIZE);
    int **mat1 = (int **) malloc (SIZE * sizeof(int*));
