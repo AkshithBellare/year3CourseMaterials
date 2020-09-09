@@ -1,0 +1,15 @@
+Ux = sigma(x* g(x) where g(x) is the marginal distribution of x
+x=7 , g(x) = 2.2 , x*g(x) = 15.400000000000002
+summation of all the above terms and Ux = 15.400000000000002 
+
+Uy = sigma(y* g(y) where g(y) is the marginal distribution of y
+y=1 , g(y) = 0.5 , y*g(y) = 0.5
+y=5 , g(y) = 0.9 , y*g(y) = 4.5
+y=10 , g(y) = 0.8 , y*g(y) = 8.0
+summation of all the above terms and Uy = 13.0
+
+Excpected value of G(x,y) = summation for all x over summation of all y G(x,y)*f(x,y)
+when x = 7 and y = 1  , (7^2 + 1^2) * 0.5 = 25.0
+when x = 7 and y = 5  , (7^2 + 5^2) * 0.9 = 66.60000000000001
+when x = 7 and y = 10  , (7^2 + 10^2) * 0.8 = 119.2
+summation of all the above terms and the expected value of G(x,y) = 91.0 

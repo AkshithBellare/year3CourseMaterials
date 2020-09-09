@@ -1,0 +1,16 @@
+Ux = sigma(x* g(x) where g(x) is the marginal distribution of x
+x=1 , g(x) = 0.9 , x*g(x) = 0.9
+x=3 , g(x) = 1.1 , x*g(x) = 3.3000000000000003
+summation of all the above terms and Ux = 4.2 
+
+Uy = sigma(y* g(y) where g(y) is the marginal distribution of y
+y=1 , g(y) = 1.0 , y*g(y) = 1.0
+y=2 , g(y) = 1.0 , y*g(y) = 2.0
+summation of all the above terms and Uy = 3.0
+
+Excpected value of G(x,y) = summation for all x over summation of all y G(x,y)*f(x,y)
+when x = 1 and y = 1  , (1^2 + 1^2) * 0.4 = 0.8
+when x = 1 and y = 2  , (1^2 + 2^2) * 0.5 = 2.5
+when x = 3 and y = 1  , (3^2 + 1^2) * 0.6 = 6.0
+when x = 3 and y = 2  , (3^2 + 2^2) * 0.5 = 6.5
+summation of all the above terms and the expected value of G(x,y) = 6.199999999999999 
