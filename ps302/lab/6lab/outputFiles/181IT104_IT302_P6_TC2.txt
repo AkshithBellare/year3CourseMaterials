@@ -1,0 +1,8 @@
+Enter number of oranges:
+Enter number of apples:
+Enter number of bananas:
+Enter number of fruits selected:
+#oranges = 6 #apples = -5 #bananas = 4 #of fruits selected = 3
+
+Number of fruits can't be negative. INVALID CASE
+
