@@ -3,10 +3,10 @@
 #include "omp.h"
 
 #ifndef N
-#define N 5
+#define N 24
 #endif
 #ifndef FS
-#define FS 38
+#define FS 20
 #endif
 
 struct node {
@@ -59,16 +59,16 @@ int main(int argc, char *argv[]) {
      struct node *temp=NULL;
      struct node *head=NULL;
      
-	 printf("Process linked list\n");
+	  printf("Process linked list\n");
      printf("  Each linked list node will be processed by function 'processwork()'\n");
      printf("  Each ll node will compute %d fibonacci numbers beginning with %d\n",N,FS);      
  
      p = init_list(p);
      head = p;
-     start = omp_get_wtime();
      //MY SOLUTION
      int i=0;
-     #pragma omp parallel for private(p,i)
+     start = omp_get_wtime();
+     #pragma omp parallel for private(p,i) schedule(static,3)
      for(i=0; i<N+1; i++) {
        p=head; 
        int j = i;
@@ -79,32 +79,35 @@ int main(int argc, char *argv[]) {
        printf("%d\n", p->data);
        processwork(p);
      }
-
-     //SOLUTION 2 
-     //traverse the linked list to find the length of the linked list
-     //int count = 0;
-     //p = head;
-     //while(p!=NULL) {
-     //   p = p -> next;
-     //   count += 1;
-     //}
-
-     //struct node** parr = (struct node**) malloc (count * sizeof(struct node*));
-     //p = head;
-
-     //int i=0;
-     //while(p!=NULL) {
-     //   parr[i] = p;
-     //   p = p->next;
-     //   i+=1;
-     //}
-
-     //#pragma omp parallel for schedule(static, 1) 
-     //   for(int i=0; i<count; i++) {
-     //      processwork(parr[i]);
-     //   }
-     
      end = omp_get_wtime();
+     printf("\ntotal time taken: sol1=%f\n",end-start);
+     //SOLUTION 2
+     //traverse the linked list to find the length of the linked list
+     int count = 0;
+     p = head;
+     while(p!=NULL) {
+        p = p -> next;
+        count += 1;
+     }
+
+     struct node** parr = (struct node**) malloc (count * sizeof(struct node*));
+     p = head;
+
+     i=0;
+     while(p!=NULL) {
+        parr[i] = p;
+        p = p->next;
+        i+=1;
+     }
+
+     start = omp_get_wtime();
+     #pragma omp parallel for schedule(static,3)
+        for(int i=0; i<count; i++) {
+           processwork(parr[i]);
+        }
+      end = omp_get_wtime(); 
+      printf("\ntotal time taken: sol2=%f\n",end-start);
+      
      p = head;
 	 while (p != NULL) {
         printf("%d : %d\n",p->data, p->fibdata);
@@ -113,8 +116,5 @@ int main(int argc, char *argv[]) {
         p = temp;
      }  
 	 free (p);
-
-     printf("Compute Time: %f seconds\n", end - start);
-
-     return 0;
+    return 0;
 }

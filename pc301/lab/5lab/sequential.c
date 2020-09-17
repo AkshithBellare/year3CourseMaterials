@@ -47,15 +47,42 @@ int* generateArray(int num) {
     }
     return ptr;
 }
+
+int binarySearch(int* array, int l, int r, int key) 
+{ 
+    if (r >= l) { 
+        int mid = l + (r - l) / 2; 
+        if (array[mid] == key) 
+            printf("key=%d found at index=%d\n", key, mid);
+            return mid;
+        if (array[mid] > key) 
+            return binarySearch(array, l, mid - 1, key); 
+        return binarySearch(array, mid + 1, r, key); 
+    } 
+    printf("key not found");
+    return -1;
+} 
+
 int main(int c, char** argv) {
    int SIZES[7] = {100,1000,10000,100000,1000000,10000000,100000000};
    for(int i=0; i<7; i++) {
       printf("SIZE=%d\n",SIZES[i]);
       int* array = generateArray(SIZES[i]);
-      double start = omp_get_wtime();
       int key = rand()%(SIZES[i]);
+      
+      double start = omp_get_wtime();
       linearSearch(array,0,SIZES[i],key);
       double end = omp_get_wtime();
       printf("LINEAR SEARCH time=%f\n\n",end-start);
+
+      start = omp_get_wtime();
+      paralleLinear(array,SIZES[i],key);
+      end = omp_get_wtime();
+      printf("PARALLEL LINEAR SEARCH time=%f\n\n",end-start);
+
+      start = omp_get_wtime();
+      binarySearch(array,0,SIZES[i]-1,key);
+      end = omp_get_wtime();
+      printf("LINEAR BINARY SEARCH time=%f\n\n",end-start);
    }
 }

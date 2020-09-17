@@ -3,10 +3,10 @@
 #include <omp.h>
 
 #ifndef N
-#define N 5
+#define N 24
 #endif
 #ifndef FS
-#define FS 38
+#define FS 20
 #endif
 
 struct node {
