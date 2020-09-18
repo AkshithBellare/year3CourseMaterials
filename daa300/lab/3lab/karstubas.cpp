@@ -56,31 +56,41 @@ string addBitStrings(string first, string second) {
 }
 
 string twosComplement(string num) {
-    return addBitStrings(onesComplement(num), "1");
+   string onesComp = onesComplement(num);
+   string res = addBitStrings(onesComp, "1");
+   return res;
 }
 
-string subtractBitStrings(string first, string second) {
-   string result; 
-
-   int length = makeEqualLength(first, second);
-   int carry = 0;
-
-   string twos_second = twosComplement(second);
-
-   for(int i = length - 1; i>=0; i--) {
-       int firstBit = first.at(i) - '0';
-       int secondBit = twos_second.at(i) - '0';
-
-       int sum = (firstBit ^ secondBit ^ carry)  + '0'; //adding '0' to get the ascii value of sum
-
-       result = (char)sum + result;
-
-       carry = (firstBit&secondBit) | (secondBit&carry) | (firstBit&carry);
+string subtractBitStrings(string num1, string num2) {
+    string res;
+    if(num1 == "0" && num2 == "0") {
+        return "0";
+    }
+    if(num1 == "1" && num2 == "0") {
+        return "0";
+   } else if(num2 =="1" && num1=="0") {
+       return "0";
    }
+    string twosNum2 = twosComplement(num2);
+    int len = makeEqualLength(num1, twosNum2); 
+    int carry = 0;
+    for(int i=len-1; i>=0; i--) {
+        int bit1 = num1.at(i) - '0';
+        int bit2 = twosNum2.at(i) - '0';
+        int sum = bit1 ^ bit2 ^ carry; 
 
-   if(carry) result = addBitStrings(result, "1");
+        if(sum == 0) {
+            res = "0" + res;
+        } else res = "1" + res;
 
-   return result;
+        carry = bit1&bit2 | bit2&carry | bit1&carry;
+    }
+    if(carry == 1) {
+        return res;
+    } else {
+        res = "-" + addBitStrings(onesComplement(res),"1");
+    }
+    return res; 
 }
 
 
@@ -126,17 +136,6 @@ string multiply(string x, string y) {
 int main() {
     string num1 = "1100";
     string num2 = "1010";
-
-    cout << makeEqualLength(num1, num2) << endl;
-
-    cout << subtractBitStrings(num1, num2) << endl;
-
-    cout << makeshift("1", 4) << endl;
-
-    cout << onesComplement("1100") << endl;
-
-    cout << twosComplement("1100") << endl;
-
-    cout << multiply("1100", "1010") << endl;
-
+    cout << multiply("10", "01") << endl;
+    cout << subtractBitStrings("1","1") << endl;
 }
