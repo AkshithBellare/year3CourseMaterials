@@ -44,6 +44,7 @@ def count_inversions(array):
 def main():
     array = [2,8,3,10,6]
     print(count_inversions(array))
+    print(array)
 
 if __name__ == "__main__":
     main()
