@@ -1,12 +1,13 @@
 def partition(array, beg, end):
     pivot = end
     pIndex = beg
-    for i in range(beg, end+1):
-       if(array[i] <= array[pivot]):
+    for i in range(beg, end):
+       if(array[i] < array[pivot]):
            array[i],array[pIndex] = array[pIndex], array[i]
            pIndex += 1
     array[pIndex],array[pivot] = array[pivot],array[pIndex]
-    return pIndex - 1
+    print(pIndex)
+    return pIndex 
 
 def quicksort_util(array, beg, end):
     if beg < end:
@@ -20,7 +21,6 @@ def quicksort(array):
 
 def main():
     array = [7,2,1,6,8,5,3,4]
-    print(partition(array,0,7))
     quicksort(array)
     print(array)
 

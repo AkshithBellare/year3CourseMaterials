@@ -1,0 +1,23 @@
+Amhdals law
+	Speedup only those parts of the program which takes the maximum amount of time to execute.
+	A certain part can be optimized and it takes x fraction of the entire execution time.
+	let the optimization in the processor speed up execution of that part by y times. 
+	
+	then t(new) = t - t*x - (t*x / y)
+	 
+	 speedup = (t / t(new)) = 1 / (1 - x + x/y)
+	 
+	 "The portion of the program that you cannot improve will become the bottleneck"
+	 
+	 Assuming speedup can be infinite i.e y = infinite this gives speedup = 1 / (1 - x)
+	 
+	 Amdahl's law can be used to derive upper bound on acheivable speedup in parallel 		 computer.
+	 
+	 maximum acheivable speedup = t / (s*t + (1-s)*t / P)
+	 
+	 
+	 in the limit, that considering one has a machine with infinite number of processor the speedup is 1 / s.
+	 
+	 even if s is 0.05 the speedup is only 20. 
+
+	 
