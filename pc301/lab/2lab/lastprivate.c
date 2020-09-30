@@ -7,7 +7,7 @@ int main() {
     #pragma omp parallel
     {
         int id = omp_get_thread_num();
-        #pragma omp for lastprivate(i) 
+        #pragma omp for lastprivate(i)
             for(i=0; i<n; i++) 
             {
                 printf("Thread %d : value of i : %d\n", id, i);

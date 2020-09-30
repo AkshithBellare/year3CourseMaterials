@@ -7,7 +7,7 @@ int main() {
     {
         tid = omp_get_thread_num();
         printf("Hello from thread = %d\n", tid);
-        if(tid == 0) {
+        if(tid == 0) { //same as doing #pragma omp master ig
             nthreads = omp_get_num_threads();
             printf("Number of threads = %d\n",nthreads);
         }

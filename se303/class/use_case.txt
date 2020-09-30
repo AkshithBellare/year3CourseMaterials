@@ -1,0 +1,21 @@
+Verb noun name for use case.
+Example: "Purchase course"
+next a description about the scope of the use case. (starts when ends when)
+
+The actor
+preconditions: what must be true before the use case starts?
+
+user does one thing and then the system does one thing.
+
+what's the observable piece that the system does that the user can see?
+
+alternate flows and exception flows.
+       watch video might have a pause.
+       like the video
+       
+       what if the internet connection is lost? how is presented to the user?
+       
+       postconditions: what is true after the use case ends.
+       
+       
+

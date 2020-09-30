@@ -5,7 +5,7 @@
 int main() {
     int i = 10;
     printf("\nValue before pragma i = %d\n", i);
-    #pragma omp parallel num_threads(4) private(i) 
+    #pragma omp parallel num_threads(4) private(i) //whatever change made to i by the threads die with the threads 
     {
         printf("\nValue after entering pragma i = %d Thread id(tid) = %d\n", i, omp_get_thread_num());
         i = i + omp_get_thread_num();

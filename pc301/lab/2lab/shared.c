@@ -6,6 +6,6 @@ int main() {
     {
         int tid = omp_get_thread_num();
         x = x + 1;
-        printf("Thread [%d] : value of x is %d\n", tid, x ); }
+    }
     return 0;
 }

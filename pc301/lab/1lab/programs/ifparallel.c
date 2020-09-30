@@ -7,7 +7,7 @@ int main() {
     #pragma omp parallel if(val)
     {
         if(omp_in_parallel()) 
-        printf("Parallel val = %d id = %d\n",val, omp_get_thread_num);
+        printf("Parallel val = %d id = %d\n",val, omp_get_thread_num());
         else 
         printf("Serial val = %d id = %d\n", val, omp_get_thread_num());
     }

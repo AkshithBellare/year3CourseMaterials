@@ -1,0 +1,39 @@
+1. crawl the web
+2. index the pages
+3. rank the pages.
+
+what does crawling the web mean?
+	 web crawler is a program that browses the world wide web in an automated manner.
+	 
+break the web into segments and crawl them and update them in a night.
+
+Google search algorithms
+ 	Meaning of the query
+ 	
+	 	* If if i search for "How to change a light bulb" I must also get relevant results that include pages which include information on "How to replace a light bulb". (Matching synonyms). Apparently this took google over 5 years to develop.
+	 	
+	 	* Google has freshness algorithms that check if the query contains some trending keywords which will give us fresh - up to date results then accurate old pages.
+ 	
+ 	Relevance of webpages
+ 	
+	 	* Basic: If the keywords in query is present in the web page.
+	 	
+	 	* More than that there are algorithms that ensure that the information in the web page is relevant. 
+	 	For example , If i search for "dogs" i would'nt want a web page that contains the word dog repeated ten thousand times.
+	 	
+ 	
+ 	Quality of content
+ 	
+ 		* PageRank: If a lot of websites link to the present website then it is more likely to contain trustworthy information.
+ 	
+ 	Usability of webpages
+ 	
+	 	* While ranking the websites Google also checks for factors such as
+	 		* if the page is designed for various devices.
+	 		* if the page loads for low speed connections
+	 		* if the page appears correctly for different browsers.
+	 	
+	 Context and settings
+ 	
+	 	* Location , past Search history is used to tailor relevant information.
+	 	* For example, if i search cricket in India , i might get results about the game , but maybe in a country like USA the results might mainly include the insect.
