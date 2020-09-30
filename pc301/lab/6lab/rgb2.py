@@ -1,7 +1,7 @@
 from PIL import Image
 im=Image.open('Kitten.jpg','r')
 pix_val=list(im.getdata())
-print pix_val
+print (pix_val)
 pix_val_flat=[x for sets in pix_val for x in sets]
 f=open("KittenRGB.txt","w")
 count=0
