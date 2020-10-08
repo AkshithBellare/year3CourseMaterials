@@ -1,0 +1,15 @@
+clustering - divide dataset into groups consisting of similar data points.
+real life example: People in a restaurant sitting in two diff tables arent related to each other whereas people in the same table are.
+
+Exclusive clustering
+	Data point belong exclusively to one cluster
+	ex: K means clustering
+
+Overlapping clusterring
+	Data points belong to multiple cluster
+	
+K means clustering
+	The K represents the number of clusters.
+		
+
+
