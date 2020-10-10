@@ -1,0 +1,7 @@
+marker_EOI_content_after_num,marker_DQT_num,marker_DHT_num,file_markers_num,marker_DQT_size_max,marker_DHT_size_max,file_size,marker_COM_size_max,marker_APP1_size_max,marker_APP12_size_max,target
+0,1,7,20,132,51,18622,0,0,0,0
+0,1,9,24,132,70,224924,0,0,0,0
+0,2,4,11,67,61,3906,0,0,0,0
+0,1,14,34,132,63,853642,0,0,0,0
+0,1,14,34,132,67,269458,0,0,0,0
+0,2,4,11,67,72,45243,0,0,0,0
