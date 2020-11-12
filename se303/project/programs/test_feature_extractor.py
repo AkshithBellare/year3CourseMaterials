@@ -139,7 +139,7 @@ class JPEG:
                     lenchunk, = unpack(">H", data[2:4])
                     data = data[2+lenchunk:]
             else:
-                data = data[1:]
+                data = data[2:]
             if (len(data) == 0):
                  data_list = [marker_EOI_content_after_num,marker_DQT_num,marker_DHT_num,file_markers_num, marker_DQT_size_max, marker_DHT_size_max,file_size, marker_COM_size_max,marker_APP1_size_max,marker_APP12_size_max,0]
                # print(marker_DQT_num)
@@ -169,7 +169,7 @@ class JPEG:
           #      break        
 
 if __name__ == "__main__":
-    path = r'/home/axebell/Desktop/copy_natural_images' # use your path i.e the folder with csv files from ecg viewer
+    path = r'C:\Users\akshi\Desktop\rooney' # ute your path i.e the folder with csv files from ecg viewer
     all_files = glob.glob(path + "/*.jpg")
     all_data = []
     for filename in all_files:
